@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Personal.BoardGame.Core.Entities;
+using Personal.BoardGame.Core.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,78 +22,85 @@ namespace Personal.BoardGame.Wpf
     /// </summary>
     public partial class MainWindow : Window
     {
+        BoardGameService game = new BoardGameService();
+        //Random random = new Random();
+        Player moveablePlayer = new Player(15, 15);
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        public int PlayerMarginUp = 0;
-        public int PlayerMarginLeft = 0;
+        private void BtnCreateNonTraversable_Click(object sender, RoutedEventArgs e)
+        {
+            game.CreateNonTraversables();
+        }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            
+            Startup();
+            //game.InitiatePlayer();
         }
 
         private void BtnUp_Click(object sender, RoutedEventArgs e)
         {
-            MoveUp();
+            bool horizontal = false;
+            bool toOrigin = true;
+            PushPlayer(horizontal, toOrigin);
         }
 
         private void BtnLeft_Click(object sender, RoutedEventArgs e)
         {
-            MoveLeft();
+            bool horizontal = true;
+            bool toOrigin = true;
+            PushPlayer(horizontal, toOrigin);
         }
 
         private void BtnDown_Click(object sender, RoutedEventArgs e)
         {
-            MoveDown();
+            bool horizontal = false;
+            bool toOrigin = false;
+            PushPlayer(horizontal, toOrigin);
         }
 
         private void BtnRight_Click(object sender, RoutedEventArgs e)
         {
-            MoveRight();
+            bool horizontal = true;
+            bool toOrigin = false;
+            PushPlayer(horizontal, toOrigin);
+        }
+        private void Startup()
+        {
+            SetPlayer();
+        }
+        private void SetPlayer()
+        {
+            int playerMarginLeft = moveablePlayer.SetHorizontal();
+            int playerMarginTop = moveablePlayer.SetVertical();
+            UpdateLblPlayer(playerMarginLeft, playerMarginTop);
         }
 
-        private void MoveUp()
+        private void PushPlayer(bool horizontal, bool toOrigin)
         {
-            if (PlayerMarginUp >= 30)
+            int playerMarginLeft;
+            int playerMarginTop;
+            int newValue = moveablePlayer.Move(horizontal, toOrigin);
+            if (horizontal == true)
             {
-                PlayerMarginUp -= 30;
+                playerMarginLeft = newValue;
+                playerMarginTop = (int)lblPlayer.Margin.Top;
+                UpdateLblPlayer(playerMarginLeft, playerMarginTop);
             }
-            UpdateLblPlayer();
-        }
-
-        private void MoveLeft()
-        {
-            if (PlayerMarginLeft >= 30)
+            else
             {
-                PlayerMarginLeft -= 30;
+                playerMarginLeft = (int)lblPlayer.Margin.Left;
+                playerMarginTop = newValue;
+                UpdateLblPlayer(playerMarginLeft, playerMarginTop);
             }
-            UpdateLblPlayer();
         }
 
-        private void MoveDown()
+        private void UpdateLblPlayer(int playerMarginLeft, int playerMarginUp)
         {
-            if (PlayerMarginUp <= 480)
-            {
-                PlayerMarginUp += 30;
-            }
-            UpdateLblPlayer();
-        }
-
-        private void MoveRight()
-        {
-            if (PlayerMarginLeft <= 480)
-            {
-                PlayerMarginLeft += 30;
-            }
-            UpdateLblPlayer();
-        }
-
-        private void UpdateLblPlayer()
-        {
-            lblPlayer.Margin = new Thickness(PlayerMarginLeft, PlayerMarginUp, 0, 0);
+            lblPlayer.Margin = new Thickness(playerMarginLeft, playerMarginUp, 0, 0);
         }
     }
 }
