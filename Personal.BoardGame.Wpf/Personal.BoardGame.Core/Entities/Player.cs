@@ -59,11 +59,17 @@ namespace Personal.BoardGame.Core.Entities
             {
                 if (toOrigin == true)
                 {
-                    VerticalValue -= 1;
+                    if (verticalValue > 0)
+                    {
+                        VerticalValue -= 1;
+                    }
                 }
                 else
                 {
-                    VerticalValue += 1;
+                    if (verticalValue < 19)
+                    {
+                        VerticalValue += 1;
+                    }
                 }
                 return verticalValue * 30;
             }
