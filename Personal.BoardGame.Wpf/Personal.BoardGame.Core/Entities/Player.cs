@@ -8,6 +8,7 @@ namespace Personal.BoardGame.Core.Entities
 {
     public class Player
     {
+        Random random = new Random();
         public int horizontalValue;
         public int verticalValue;
         public int HorizontalValue
@@ -21,10 +22,10 @@ namespace Personal.BoardGame.Core.Entities
             set { verticalValue = value; }
         }
 
-        public Player(int horizontalStart, int verticalStart)
+        public Player()
         {
-            horizontalValue = horizontalStart;
-            verticalValue = verticalStart;
+            horizontalValue = random.Next(0,19);
+            verticalValue = random.Next(0,19);
         }
         public int SetHorizontal()
         {

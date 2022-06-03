@@ -24,7 +24,7 @@ namespace Personal.BoardGame.Wpf
     {
         BoardGameService game = new BoardGameService();
         //Random random = new Random();
-        Player moveablePlayer = new Player(15, 15);
+        Player moveablePlayer = new Player();
         public MainWindow()
         {
             InitializeComponent();
@@ -38,7 +38,6 @@ namespace Personal.BoardGame.Wpf
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             Startup();
-            //game.InitiatePlayer();
         }
 
         private void BtnUp_Click(object sender, RoutedEventArgs e)
