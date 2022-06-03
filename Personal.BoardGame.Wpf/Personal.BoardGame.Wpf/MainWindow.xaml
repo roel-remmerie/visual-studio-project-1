@@ -32,6 +32,10 @@
         <Label x:Name="lbl42" Content="" HorizontalAlignment="Left" Margin="140,260,0,0" VerticalAlignment="Top" Background="#FFFEF5C8" Width="50" Height="50"/>
         <Label x:Name="lbl43" Content="" HorizontalAlignment="Left" Margin="200,260,0,0" VerticalAlignment="Top" Background="#FFFEF5C8" Width="50" Height="50"/>
         <Label x:Name="lbl44" Content="" HorizontalAlignment="Left" Margin="260,260,0,0" VerticalAlignment="Top" Background="#FFFEF5C8" Width="50" Height="50"/>
-        <Label x:Name="lbl_Player" Content="" HorizontalAlignment="Left" Margin="150,150,0,0" VerticalAlignment="Top" Background="#FFFFAAAA" Width="30" Height="30"/>
+        <Label x:Name="lblPlayer" Content="" HorizontalAlignment="Left" Margin="150,150,0,0" VerticalAlignment="Top" Background="#FFFFAAAA" Width="30" Height="30"/>
+        <Button x:Name="btnUp" Content="Up" HorizontalAlignment="Left" Margin="405,185,0,0" VerticalAlignment="Top" Width="60" Height="60"/>
+        <Button x:Name="btnLeft" Content="Left" HorizontalAlignment="Left" Margin="340,250,0,0" VerticalAlignment="Top" Width="60" Height="60"/>
+        <Button x:Name="btnDown" Content="Down" HorizontalAlignment="Left" Margin="405,250,0,0" VerticalAlignment="Top" Width="60" Height="60"/>
+        <Button x:Name="btnRight" Content="Right" HorizontalAlignment="Left" Margin="470,250,0,0" VerticalAlignment="Top" Width="60" Height="60"/>
     </Grid>
 </Window>
