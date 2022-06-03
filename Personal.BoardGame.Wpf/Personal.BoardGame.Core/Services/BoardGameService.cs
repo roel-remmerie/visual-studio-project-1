@@ -15,16 +15,7 @@ namespace Personal.BoardGame.Core.Services
         {
             get { return NonTraversables; }
         }
-        /*
-        public void InitiatePlayer()
-        {
-            Player player = new Player(random.Next(0,19), random.Next(0,19));
-        }
-        public void MovePlayer(bool horizontal, bool toOrigin)
-        {
-            Player player.Move(horizontal, toOrigin);
-        }
-        */
+        
         public void CreateNonTraversables()
         {
             NonTraversable nonTraversable = new NonTraversable(random.Next(0,19), random.Next(0,19));
