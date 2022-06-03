@@ -25,8 +25,13 @@ namespace Personal.BoardGame.Wpf
             InitializeComponent();
         }
 
-        public int PlayerMarginUp = 150;
-        public int PlayerMarginLeft = 150;
+        public int PlayerMarginUp = 0;
+        public int PlayerMarginLeft = 0;
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            
+        }
 
         private void BtnUp_Click(object sender, RoutedEventArgs e)
         {
@@ -50,36 +55,36 @@ namespace Personal.BoardGame.Wpf
 
         private void MoveUp()
         {
-            if (PlayerMarginUp != 30)
+            if (PlayerMarginUp >= 30)
             {
-                PlayerMarginUp -= 60;
+                PlayerMarginUp -= 30;
             }
             UpdateLblPlayer();
         }
 
         private void MoveLeft()
         {
-            if (PlayerMarginLeft != 30)
+            if (PlayerMarginLeft >= 30)
             {
-                PlayerMarginLeft -= 60;
+                PlayerMarginLeft -= 30;
             }
             UpdateLblPlayer();
         }
 
         private void MoveDown()
         {
-            if (PlayerMarginUp != 270)
+            if (PlayerMarginUp <= 480)
             {
-                PlayerMarginUp += 60;
+                PlayerMarginUp += 30;
             }
             UpdateLblPlayer();
         }
 
         private void MoveRight()
         {
-            if (PlayerMarginLeft != 270)
+            if (PlayerMarginLeft <= 480)
             {
-                PlayerMarginLeft += 60;
+                PlayerMarginLeft += 30;
             }
             UpdateLblPlayer();
         }
