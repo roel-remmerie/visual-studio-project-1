@@ -32,6 +32,6 @@
         <Label x:Name="lbl42" Content="" HorizontalAlignment="Left" Margin="140,260,0,0" VerticalAlignment="Top" Background="#FFFEF5C8" Width="50" Height="50"/>
         <Label x:Name="lbl43" Content="" HorizontalAlignment="Left" Margin="200,260,0,0" VerticalAlignment="Top" Background="#FFFEF5C8" Width="50" Height="50"/>
         <Label x:Name="lbl44" Content="" HorizontalAlignment="Left" Margin="260,260,0,0" VerticalAlignment="Top" Background="#FFFEF5C8" Width="50" Height="50"/>
-        <Label x:Name="lbl_Player" Content="" HorizontalAlignment="Left" Margin="482,121,0,0" VerticalAlignment="Top" Background="Red" Width="30" Height="30"/>
+        <Label x:Name="lbl_Player" Content="" HorizontalAlignment="Left" Margin="150,150,0,0" VerticalAlignment="Top" Background="#FFFFAAAA" Width="30" Height="30"/>
     </Grid>
 </Window>
