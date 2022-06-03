@@ -24,5 +24,69 @@ namespace Personal.BoardGame.Wpf
         {
             InitializeComponent();
         }
+
+        public int PlayerMarginUp = 150;
+        public int PlayerMarginLeft = 150;
+
+        private void BtnUp_Click(object sender, RoutedEventArgs e)
+        {
+            MoveUp();
+        }
+
+        private void BtnLeft_Click(object sender, RoutedEventArgs e)
+        {
+            MoveLeft();
+        }
+
+        private void BtnDown_Click(object sender, RoutedEventArgs e)
+        {
+            MoveDown();
+        }
+
+        private void BtnRight_Click(object sender, RoutedEventArgs e)
+        {
+            MoveRight();
+        }
+
+        private void MoveUp()
+        {
+            if (PlayerMarginUp != 30)
+            {
+                PlayerMarginUp -= 60;
+            }
+            UpdateLblPlayer();
+        }
+
+        private void MoveLeft()
+        {
+            if (PlayerMarginLeft != 30)
+            {
+                PlayerMarginLeft -= 60;
+            }
+            UpdateLblPlayer();
+        }
+
+        private void MoveDown()
+        {
+            if (PlayerMarginUp != 270)
+            {
+                PlayerMarginUp += 60;
+            }
+            UpdateLblPlayer();
+        }
+
+        private void MoveRight()
+        {
+            if (PlayerMarginLeft != 270)
+            {
+                PlayerMarginLeft += 60;
+            }
+            UpdateLblPlayer();
+        }
+
+        private void UpdateLblPlayer()
+        {
+            lblPlayer.Margin = new Thickness(PlayerMarginLeft, PlayerMarginUp, 0, 0);
+        }
     }
 }
