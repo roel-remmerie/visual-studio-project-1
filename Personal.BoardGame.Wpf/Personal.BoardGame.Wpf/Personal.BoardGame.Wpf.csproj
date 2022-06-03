@@ -7,4 +7,8 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Personal.BoardGame.Core\Personal.BoardGame.Core.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -5,37 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Personal.BoardGame.Wpf"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Label x:Name="lbl00" Content="" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" Background="#FFFEF5C8" Width="50" Height="50"/>
-        <Label x:Name="lbl01" Content="" HorizontalAlignment="Left" Margin="80,20,0,0" VerticalAlignment="Top" Background="#FFFEF5C8" Width="50" Height="50"/>
-        <Label x:Name="lbl02" Content="" HorizontalAlignment="Left" Margin="140,20,0,0" VerticalAlignment="Top" Background="#FFFEF5C8" Width="50" Height="50"/>
-        <Label x:Name="lbl03" Content="" HorizontalAlignment="Left" Margin="200,20,0,0" VerticalAlignment="Top" Background="#FFFEF5C8" Width="50" Height="50"/>
-        <Label x:Name="lbl04" Content="" HorizontalAlignment="Left" Margin="260,20,0,0" VerticalAlignment="Top" Background="#FFFEF5C8" Width="50" Height="50"/>
-        <Label x:Name="lbl10" Content="" HorizontalAlignment="Left" Margin="20,80,0,0" VerticalAlignment="Top" Background="#FFFEF5C8" Width="50" Height="50"/>
-        <Label x:Name="lbl11" Content="" HorizontalAlignment="Left" Margin="80,80,0,0" VerticalAlignment="Top" Background="#FFFEF5C8" Width="50" Height="50"/>
-        <Label x:Name="lbl12" Content="" HorizontalAlignment="Left" Margin="140,80,0,0" VerticalAlignment="Top" Background="#FFFEF5C8" Width="50" Height="50"/>
-        <Label x:Name="lbl13" Content="" HorizontalAlignment="Left" Margin="200,80,0,0" VerticalAlignment="Top" Background="#FFFEF5C8" Width="50" Height="50"/>
-        <Label x:Name="lbl14" Content="" HorizontalAlignment="Left" Margin="260,80,0,0" VerticalAlignment="Top" Background="#FFFEF5C8" Width="50" Height="50"/>
-        <Label x:Name="lbl20" Content="" HorizontalAlignment="Left" Margin="20,140,0,0" VerticalAlignment="Top" Background="#FFFEF5C8" Width="50" Height="50"/>
-        <Label x:Name="lbl21" Content="" HorizontalAlignment="Left" Margin="80,140,0,0" VerticalAlignment="Top" Background="#FFFEF5C8" Width="50" Height="50"/>
-        <Label x:Name="lbl22" Content="" HorizontalAlignment="Left" Margin="140,140,0,0" VerticalAlignment="Top" Background="#FFFEF5C8" Width="50" Height="50"/>
-        <Label x:Name="lbl23" Content="" HorizontalAlignment="Left" Margin="200,140,0,0" VerticalAlignment="Top" Background="#FFFEF5C8" Width="50" Height="50"/>
-        <Label x:Name="lbl24" Content="" HorizontalAlignment="Left" Margin="260,140,0,0" VerticalAlignment="Top" Background="#FFFEF5C8" Width="50" Height="50"/>
-        <Label x:Name="lbl30" Content="" HorizontalAlignment="Left" Margin="20,200,0,0" VerticalAlignment="Top" Background="#FFFEF5C8" Width="50" Height="50"/>
-        <Label x:Name="lbl31" Content="" HorizontalAlignment="Left" Margin="80,200,0,0" VerticalAlignment="Top" Background="#FFFEF5C8" Width="50" Height="50"/>
-        <Label x:Name="lbl32" Content="" HorizontalAlignment="Left" Margin="140,200,0,0" VerticalAlignment="Top" Background="#FFFEF5C8" Width="50" Height="50"/>
-        <Label x:Name="lbl33" Content="" HorizontalAlignment="Left" Margin="200,200,0,0" VerticalAlignment="Top" Background="#FFFEF5C8" Width="50" Height="50"/>
-        <Label x:Name="lbl34" Content="" HorizontalAlignment="Left" Margin="260,200,0,0" VerticalAlignment="Top" Background="#FFFEF5C8" Width="50" Height="50"/>
-        <Label x:Name="lbl40" Content="" HorizontalAlignment="Left" Margin="20,260,0,0" VerticalAlignment="Top" Background="#FFFEF5C8" Width="50" Height="50"/>
-        <Label x:Name="lbl41" Content="" HorizontalAlignment="Left" Margin="80,260,0,0" VerticalAlignment="Top" Background="#FFFEF5C8" Width="50" Height="50"/>
-        <Label x:Name="lbl42" Content="" HorizontalAlignment="Left" Margin="140,260,0,0" VerticalAlignment="Top" Background="#FFFEF5C8" Width="50" Height="50"/>
-        <Label x:Name="lbl43" Content="" HorizontalAlignment="Left" Margin="200,260,0,0" VerticalAlignment="Top" Background="#FFFEF5C8" Width="50" Height="50"/>
-        <Label x:Name="lbl44" Content="" HorizontalAlignment="Left" Margin="260,260,0,0" VerticalAlignment="Top" Background="#FFFEF5C8" Width="50" Height="50"/>
-        <Label x:Name="lblPlayer" Content="" HorizontalAlignment="Left" Margin="150,150,0,0" VerticalAlignment="Top" Background="#FFFFAAAA" Width="30" Height="30"/>
-        <Button x:Name="btnUp" Content="Up" HorizontalAlignment="Left" Margin="405,185,0,0" VerticalAlignment="Top" Width="60" Height="60"/>
-        <Button x:Name="btnLeft" Content="Left" HorizontalAlignment="Left" Margin="340,250,0,0" VerticalAlignment="Top" Width="60" Height="60"/>
-        <Button x:Name="btnDown" Content="Down" HorizontalAlignment="Left" Margin="405,250,0,0" VerticalAlignment="Top" Width="60" Height="60"/>
-        <Button x:Name="btnRight" Content="Right" HorizontalAlignment="Left" Margin="470,250,0,0" VerticalAlignment="Top" Width="60" Height="60"/>
+        Title="MainWindow" Height="675" Width="900" Loaded="Window_Loaded">
+    <Grid x:Name="grdMainGrid" Background="#FF7E6A2D">
+        <Grid x:Name="grdPlayfield" Background="#FFFFFABE" Margin="30,30,0,5" HorizontalAlignment="Left" VerticalAlignment="Top" Width="600" Height="600">
+            <Label x:Name="lblPlayer" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#FFFFAAAA" Width="30" Height="30"/>
+        </Grid>
+        <Grid Margin="0,30,30,30" Background="White" HorizontalAlignment="Right" Width="210">
+            <Button x:Name="btnCreateNonTraversable" Content="New NT" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Height="60" Click="BtnCreateNonTraversable_Click" Margin="10,10,0,0"/>
+            <Button x:Name="btnLeft" Content="Left" HorizontalAlignment="Right" Margin="0,0,140,10" VerticalAlignment="Bottom" Width="60" Height="60" Click="BtnLeft_Click"/>
+            <Button x:Name="btnDown" Content="Down" HorizontalAlignment="Center" Margin="0,0,0,10" VerticalAlignment="Bottom" Width="60" Height="60" Click="BtnDown_Click"/>
+            <Button x:Name="btnRight" Content="Right" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="60" Height="60" Click="BtnRight_Click"/>
+            <Button x:Name="btnUp" Content="Up" HorizontalAlignment="Center" Margin="0,0,0,75" VerticalAlignment="Bottom" Width="60" Height="60" Click="BtnUp_Click"/>
+        </Grid>
     </Grid>
 </Window>
