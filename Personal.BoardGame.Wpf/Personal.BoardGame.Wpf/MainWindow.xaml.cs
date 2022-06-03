@@ -75,7 +75,7 @@ namespace Personal.BoardGame.Wpf
         {
             int playerMarginLeft = moveablePlayer.SetHorizontal();
             int playerMarginTop = moveablePlayer.SetVertical();
-            UpdateLblPlayer(playerMarginLeft, playerMarginTop);
+            UpdatePlayerLbls(playerMarginLeft, playerMarginTop);
         }
 
         private void PushPlayer(bool horizontal, bool toOrigin)
@@ -86,20 +86,22 @@ namespace Personal.BoardGame.Wpf
             if (horizontal == true)
             {
                 playerMarginLeft = newValue;
-                playerMarginTop = (int)lblPlayer.Margin.Top;
-                UpdateLblPlayer(playerMarginLeft, playerMarginTop);
+                playerMarginTop = (int)lblPlayer.Margin.Top / 30;
+                UpdatePlayerLbls(playerMarginLeft, playerMarginTop);
             }
             else
             {
-                playerMarginLeft = (int)lblPlayer.Margin.Left;
+                playerMarginLeft = (int)lblPlayer.Margin.Left / 30;
                 playerMarginTop = newValue;
-                UpdateLblPlayer(playerMarginLeft, playerMarginTop);
+                UpdatePlayerLbls(playerMarginLeft, playerMarginTop);
             }
         }
 
-        private void UpdateLblPlayer(int playerMarginLeft, int playerMarginUp)
+        private void UpdatePlayerLbls(int playerMarginLeft, int playerMarginUp)
         {
-            lblPlayer.Margin = new Thickness(playerMarginLeft, playerMarginUp, 0, 0);
+            lblPlayer.Margin = new Thickness(playerMarginLeft * 30, playerMarginUp * 30, 0, 0);
+            lblHorizontalPos.Content = playerMarginLeft;
+            lblVerticalPos.Content = playerMarginUp;
         }
     }
 }

@@ -16,6 +16,8 @@
             <Button x:Name="btnDown" Content="Down" HorizontalAlignment="Center" Margin="0,0,0,10" VerticalAlignment="Bottom" Width="60" Height="60" Click="BtnDown_Click"/>
             <Button x:Name="btnRight" Content="Right" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="60" Height="60" Click="BtnRight_Click"/>
             <Button x:Name="btnUp" Content="Up" HorizontalAlignment="Center" Margin="0,0,0,75" VerticalAlignment="Bottom" Width="60" Height="60" Click="BtnUp_Click"/>
+            <Label x:Name="lblHorizontalPos" Content="" HorizontalAlignment="Stretch" Margin="10,75,10,0" VerticalAlignment="Top" Background="#FFDDDDDD" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
+            <Label x:Name="lblVerticalPos" Content="" Margin="10,106,10,0" VerticalAlignment="Top" Background="#FFDDDDDD" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
         </Grid>
     </Grid>
 </Window>
