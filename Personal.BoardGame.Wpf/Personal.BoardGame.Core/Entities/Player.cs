@@ -9,9 +9,9 @@ namespace Personal.BoardGame.Core.Entities
     public class Player
     {
         Random random = new Random();
-
         public int horizontalValue;
         public int verticalValue;
+        public string positionId;
         public int HorizontalValue
         {
             get { return horizontalValue; }
@@ -22,11 +22,17 @@ namespace Personal.BoardGame.Core.Entities
             get { return verticalValue; }
             set { verticalValue = value; }
         }
-        
+        public string PositionId
+        {
+            get { return positionId; }
+            set { positionId = value; }
+        }
+
         public Player()
         {
             HorizontalValue = random.Next(0,19);
             VerticalValue = random.Next(0,19);
+            PositionId = $"{horizontalValue}-{verticalValue}";
         }
         public int SetHorizontal()
         {
@@ -35,6 +41,11 @@ namespace Personal.BoardGame.Core.Entities
         public int SetVertical()
         {
             return verticalValue;
+        }
+        public string SetPosition()
+        {
+            PositionId = $"{horizontalValue}-{verticalValue}";
+            return positionId;
         }
         public int Move(bool horizontal, bool toOrigin)
         {

@@ -28,11 +28,12 @@ namespace Personal.BoardGame.Core.Entities
         {
             HorizontalPos = horizontalPos;
             VerticalPos = verticalPos;
+            PositionId = $"{horizontalPos}-{verticalPos}";
         }
 
-        public override string ToString()
-        {
-            return $"{HorizontalPos} - {VerticalPos}";
-        }
+        //public override string ToString()
+        //{
+        //    return $"{HorizontalPos} - {VerticalPos}";
+        //}
     }
 }

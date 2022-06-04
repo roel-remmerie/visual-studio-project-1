@@ -23,7 +23,6 @@ namespace Personal.BoardGame.Wpf
     public partial class MainWindow : Window
     {
         BoardGameService game = new BoardGameService();
-        //Random random = new Random();
         Player moveablePlayer = new Player();
         public MainWindow()
         {
@@ -75,7 +74,8 @@ namespace Personal.BoardGame.Wpf
         {
             int playerMarginLeft = moveablePlayer.SetHorizontal();
             int playerMarginTop = moveablePlayer.SetVertical();
-            UpdatePlayerLbls(playerMarginLeft, playerMarginTop);
+            string playerPosition = moveablePlayer.SetPosition();
+            UpdatePlayerLbls(playerMarginLeft, playerMarginTop, playerPosition);
         }
 
         private void PushPlayer(bool horizontal, bool toOrigin)
@@ -83,25 +83,27 @@ namespace Personal.BoardGame.Wpf
             int playerMarginLeft;
             int playerMarginTop;
             int newValue = moveablePlayer.Move(horizontal, toOrigin);
+            string playerPosition = moveablePlayer.SetPosition();
             if (horizontal == true)
             {
                 playerMarginLeft = newValue;
                 playerMarginTop = (int)lblPlayer.Margin.Top / 30;
-                UpdatePlayerLbls(playerMarginLeft, playerMarginTop);
+                UpdatePlayerLbls(playerMarginLeft, playerMarginTop, playerPosition);
             }
             else
             {
                 playerMarginLeft = (int)lblPlayer.Margin.Left / 30;
                 playerMarginTop = newValue;
-                UpdatePlayerLbls(playerMarginLeft, playerMarginTop);
+                UpdatePlayerLbls(playerMarginLeft, playerMarginTop, playerPosition);
             }
         }
 
-        private void UpdatePlayerLbls(int playerMarginLeft, int playerMarginUp)
+        private void UpdatePlayerLbls(int playerMarginLeft, int playerMarginUp, string playerPosition)
         {
             lblPlayer.Margin = new Thickness(playerMarginLeft * 30, playerMarginUp * 30, 0, 0);
             lblHorizontalPos.Content = playerMarginLeft;
             lblVerticalPos.Content = playerMarginUp;
+            lblPositionId.Content = playerPosition;
         }
     }
 }
